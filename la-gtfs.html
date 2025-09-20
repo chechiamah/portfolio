@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA County Transit | Chechi Amah</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700&display=swap');
+        
+        :root {
+            --paper-1: #f5f1e8;
+            --paper-2: #e8e0d1;
+            --ink: #2a2723;
+            --tape-blue: rgba(174, 206, 224, 0.6);
+            --tape-pink: rgba(224, 174, 203, 0.6);
+            --highlight: #ff6b6b;
+            --shadow: rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            color: var(--ink);
+            background-color: var(--paper-2);
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: var(--paper-1);
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 10px var(--shadow);
+            position: relative;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 20px;
+            background-color: var(--tape-blue);
+            z-index: 1;
+            opacity: 0.8;
+        }
+        
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tagline {
+            font-style: italic;
+            margin: 0.5rem 0 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--paper-1);
+            box-shadow: 0 3px 5px var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        nav a {
+            color: var(--ink);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--tape-pink);
+        }
+        
+        .project-detail {
+            max-width: 1000px;
+            margin: 3rem auto;
+            background: var(--paper-1);
+            padding: 3rem;
+            border-radius: 5px;
+            box-shadow: 
+                0 5px 15px var(--shadow),
+                0 0 0 1px var(--ink);
+        }
+        
+        .project-detail h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+        
+        .project-detail h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .project-tools {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .project-tools span {
+            background-color: var(--tape-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        
+        .project-detail img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+        
+        .website-container {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border: 1px solid var(--ink);
+            border-radius: 5px;
+            box-shadow: 0 3px 15px var(--shadow);
+        }
+        
+        .website-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        pre {
+            background-color: var(--paper-2);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: transparent;
+            box-shadow: 
+                inset 0 0 0 1px var(--ink),
+                0 3px 5px var(--shadow);
+        }
+        
+        .back-link:hover {
+            background: var(--tape-blue);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: var(--paper-1);
+            box-shadow: 0 -3px 5px var(--shadow);
+        }
+        
+        @media (max-width: 768px) {
+            .project-detail {
+                padding: 2rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .website-container {
+                padding-bottom: 100%; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chechi Amah</h1>
+        <p class="tagline">Material systems & coded ecologies</p>
+    </header>
+    
+    <nav>
+        <a href="index.html#about">About</a>
+        <a href="index.html#generative">Generative Systems</a>
+        <a href="index.html#data">Data Terrains</a>
+        <a href="index.html#interactive">Interactive Media</a>
+        <a href="index.html#critical">Critical Cartography</a>
+    </nav>
+    
+    <div class="project-detail">
+        <h2>Spectral Sounds</h2>
+                <div class="project-tools">
+                    <span>GTFS</span>
+                    <span>Leaflet.js</span>
+                    <span>Data Visualization</span>
+                </div>
+        
+        <!-- Website Embed -->
+        <div class="website-container">
+            <iframe src="https://chechiamah.github.io/Los-Angeles-County-Bus-Stops-and-Routes-2.0/" 
+                    frameborder="0" 
+                    allowfullscreen></iframe>
+        </div>
+        
+        <p>A more extensive project mapping LA County bus routes and stops.</p>
+
+        <p>This project uses <strong>Leaflet.js</strong> and data from the <strong>LACMTA</strong> GitLab Repository to visualize transit systems across Los Angeles County.</p>
+
+        <p>All of the transit systems listed on <strong>Wikipedia’s</strong> Los Angeles County transportation section are included in this map.</p>
+
+        <strong>Included Transit Agencies:</strong>
+        <p>Other smaller regional transit agencies that provide public transit to specific regions of Los Angeles County:
+        </p>
+        <li>LADOT</li>
+        <li>Long Beach Transit</li>
+        <li>Montebello Bus Lines</li>
+        <li>Norwalk Transit</li>
+        <li>Santa Monica's Big Blue Bus</li>
+        <li>Santa Clarita Transit</li>
+        <li>Torrance Transit</li>
+        <li>Glendale Beeline</li>
+        <li>Foothill Transit — serving the San Gabriel Valley</li>
+        <li>Antelope Valley Transit Authority — serving Lancaster and Palmdale in the Antelope Valley</li>
+        
+         <a href="index.html" class="back-link">← Back to all projects</a>
+    <footer>
+        <p>© 2025 Chechi Amah | Creative Technologist</p>
+        <div style="margin-top: 1rem;">
+            <a href="mailto:chechiamah@g.ucla.edu" style="color: var(--ink); margin: 0 0.5rem; text-decoration: underline;">Contact</a>
+            <a href="https://github.com/chechiamah" style="color: var(--ink); margin: 0 0.5rem; text-decoration: underline;">GitHub</a>
+            <a href="https://linkedin.com/in/chechiamah" style="color: var(--ink); margin: 0 0.5rem; text-decoration: underline;">LinkedIn</a>
+        </div>
+    </footer>
+</body>
+</html>
